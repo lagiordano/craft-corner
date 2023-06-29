@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+This will become a Ruby on Rails appliaction that provides thr back end to an application, Craft Corner, where users can discover and share various craft projects. 
