@@ -1,15 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
 
-puts "Seeding..."
+# puts "Seeding categories..."
 
 # Category.create([{category_type: "fabric"}, {category_type: "yarn"}, {category_type: "art"}, {category_type: "home"}, {category_type: "kids"}] )
 
+
+# puts "Seeding projects..."
 
 # Project.create(title: "Peach Rug Making Kit", description: "A beautiful rug making kit for a small peach. Includes all required instrutions and materials", url: "https://www.craftclubco.com/products/peachy-rug-making-kit", image: "https://cdn.shopify.com/s/files/1/0266/5732/5245/products/craft-club-co-rug-making-kit-peachy-rug-making-kit-29787486290109_990x.jpg?v=1627987734", likes: 0, category_id: 2)
 
@@ -30,5 +25,6 @@ puts "Seeding..."
 # Project.create(title: "Retro Bumbag", description: "Great tutorial for sewing your own spacious and funky bumbag. I made this for a festival and have kept using it since", url: "https://www.frankie.com.au/article/frankie-exclusive-diy-bum-bag-545682", image: "https://i.nextmedia.com.au/frankie/diy-bum-bag-frankie-inside-flat-lay.jpg", likes: 0, category_id: 1)
 
 # Project.create(title: "Crochet Scarf for Beginners", description: "Beginner friendly pattern plus tutorial to a cosy winter scarf", url:"https://sarahmaker.com/crochet-scarf-pattern/", image: "https://sarahmaker.com/wp-content/uploads/2021/08/sarahmaker-crochet-scarf-pattern-10.jpg.webp", likes: 0, category_id: 2)
+
 
 puts "Seeding completed!"
