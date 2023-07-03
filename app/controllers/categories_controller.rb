@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
 
     def index
         categories = Category.all
-        render json: categories, each_serializer: ListCategoriesSerializer, status: :ok
+        render json: categories, status: :ok
     end
 
     def show 

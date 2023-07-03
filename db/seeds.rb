@@ -27,4 +27,49 @@
 # Project.create(title: "Crochet Scarf for Beginners", description: "Beginner friendly pattern plus tutorial to a cosy winter scarf", url:"https://sarahmaker.com/crochet-scarf-pattern/", image: "https://sarahmaker.com/wp-content/uploads/2021/08/sarahmaker-crochet-scarf-pattern-10.jpg.webp", likes: 0, category_id: 2)
 
 
+# puts "Seeding users..."
+
+# User.create(username: "LaurenCrafts", first_name: "Lauren", last_name: "Giordano", email: "lauren@gmail.com", password: "Password1")
+
+# User.create(username: "JaneDoe1", first_name: "Jane", last_name: "Doe", email: "jane@gmail.com", password: "Password1")
+
+# User.create(username: "SmithLovesCraft", first_name: "Roger", last_name: "Smith", email: "roger@gmail.com", password: "Password1")
+
+# User.create(username: "ChloeKnits", first_name: "Chloe", last_name: "Watson", email: "chloe@gmail.com", password: "Password1")
+
+# User.create(username: "DavidCraftsALot", first_name: "David", last_name: "Bell", email: "david@gmail.com", password: "Passsword1")
+
+
+puts "Seeding user projects..."
+
+UserProject.create(user_id: 1, project_id: 1, completed_status: "wish list")
+
+UserProject.create(user_id: 1, project_id: 2, completed_status: "completed")
+
+UserProject.create(user_id: 1, project_id: 3, completed_status: "in progress")
+
+UserProject.create(user_id: 2, project_id: 4, completed_status: "wish_list")
+
+UserProject.create(user_id: 2, project_id: 5, completed_status: "completed")
+
+UserProject.create(user_id: 2, project_id: 6, completed_status: "in progress")
+
+UserProject.create(user_id: 3, project_id: 7, completed_status: "wish list")
+
+UserProject.create(user_id: 3, project_id: 8, completed_status: "completed")
+
+UserProject.create(user_id: 3, project_id: 9, completed_status: "in progress")
+
+UserProject.create(user_id: 4, project_id: 10, completed_status: "wish list")
+
+UserProject.create(user_id: 4, project_id: 1, completed_status: "in progress")
+
+UserProject.create(user_id: 4, project_id: 2, completed_status: "completed")
+
+UserProject.create(user_id: 5, project_id: 3, completed_status: "wish list")
+
+UserProject.create(user_id: 5, project_id: 4, completed_status: "completed")
+
+UserProject.create(user_id: 5, project_id: 5, completed_status: "in progress")
+
 puts "Seeding completed!"
