@@ -6,10 +6,14 @@ class ProjectsController < ApplicationController
         if params[:category_id]
             category = Category.find(params[:category_id])
             projects = category.projects
+        elsif params[:user_id]
+            user = User.find(params[:user_id])
+            projects = user.projects
         else
             projects = Project.all
         end
-        render json: projects, status: :ok
+        
+        render json: projects.paginate(page: params[:page], per_page: 10), status: :ok
     end
 
     def show 
@@ -37,7 +41,7 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-        params.permit(:title, :description, :url, :image, :likes, :category_id)
+        params.permit(:title, :description, :url, :image, :adds, :category_id)
     end
 
     def user_project_params
