@@ -26,6 +26,8 @@ Project.create(title: "Retro Bumbag", description: "Great tutorial for sewing yo
 
 Project.create(title: "Crochet Scarf for Beginners", description: "Beginner friendly pattern plus tutorial to a cosy winter scarf", url:"https://sarahmaker.com/crochet-scarf-pattern/", image: "https://sarahmaker.com/wp-content/uploads/2021/08/sarahmaker-crochet-scarf-pattern-10.jpg.webp", adds: 0, category_id: 2)
 
+Project.create(title: "Perfect Scarf for Bigginner Knitters", description: "This is a great knitting tutorial for beginners who need easy to understand instructions and basic stitches", url:"https://nimble-needles.com/patterns/how-to-knit-a-scarf-for-beginners/", image: "https://nimble-needles.com/wp-content/uploads/2020/04/how-to-knit-a-scarf.jpg.webp", adds: 0, category_id: 2)
+
 
 puts "Seeding users..."
 

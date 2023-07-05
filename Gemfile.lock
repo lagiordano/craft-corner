@@ -81,6 +81,8 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    email_validator (1.6.0)
+      activemodel
     erubi (1.12.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -168,6 +170,7 @@ DEPENDENCIES
   active_model_serializers
   bcrypt
   debug
+  email_validator (~> 1.6)
   puma (~> 5.0)
   rails (~> 7.0.5, >= 7.0.5.1)
   sqlite3 (~> 1.4)

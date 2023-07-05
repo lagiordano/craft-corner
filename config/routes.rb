@@ -1,18 +1,14 @@
 Rails.application.routes.draw do
-  resources :categories, only: [:index, :show] do
-    resources :projects, only: [:index, :show]
-  end
-
-  resources :users, only: [:show] do
+  resources :categories, only: [:index, :show] 
+  resources :projects, only: [:index, :show, :create, :update, :destroy]
+  resources :user_projects, only: [:create, :destroy, :update]
+  resources :users, only: [:destroy] do
     resources :projects, only: [:index, :show]
   end
   
-  resources :projects, only: [:index, :show, :create, :update]
-  resources :user_projects, only: [:create, :index]
-
-  post '/login', to: 'sessions#create'
+  get '/me', to: 'users#show' 
   post '/signup', to: 'users#create'
-  # get '/me', to: 'users#show'
+  post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
   # root "articles#index"
