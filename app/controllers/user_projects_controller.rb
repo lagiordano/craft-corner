@@ -2,7 +2,7 @@ class UserProjectsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocesable_entity_response
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
-
+    
     #  clicking 'add project' on front end will create a user_proejct association, will also update the project to increase the 'adds' count by 1
     def create
         user_project = UserProject.create!(user_project_params)
@@ -11,12 +11,6 @@ class UserProjectsController < ApplicationController
         user_project.project.update!(adds: adds)
         render json: user_project.project, status: :created
     end
-
-    #  displays a users projects with completed status for each
-    # def index
-    #     user = User.find(session[:user_id])
-    #     render json: user.user_projects.paginate(page: params[:page], per_page: 10), status: :ok
-    # end
 
     #  clicking 'remove from list' on front end will delete user_project
     def destroy

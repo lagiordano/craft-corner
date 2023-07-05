@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
     # user delete's account, destroys associated user_projects, but NOT associated projects 
     def destroy
+        return render json: {error: "Not authorized" }, status: :unauthorized unless params[:id].to_i == session[:user_id]
         user = User.find(params[:id])
         user.destroy
         head :no_content

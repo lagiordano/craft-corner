@@ -10,10 +10,10 @@ class CategoriesController < ApplicationController
         render json: categories, status: :ok
     end
 
-    # displays single category - get rid of this?
+    # displays projects within a category - with pagination 
     def show 
         category = Category.find(params[:id])
-        render json: category, serializer: ProjectsInCategorySerializer, status: :ok
+        render json: category.projects.paginate(page: params[:page], per_page: 10), status: :ok
     end
 
     private 

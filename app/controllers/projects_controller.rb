@@ -2,10 +2,12 @@ class ProjectsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocesable_entity_response
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
+    
    
     #  displays all projects or all projects of a certain category to user
-    def index 
+    def index
         if params[:user_id]
+            return render json: {error: "Not authorized" }, status: :unauthorized unless params[:user_id].to_i == session[:user_id]
             user = User.find(params[:user_id])
             projects = user.projects
         else

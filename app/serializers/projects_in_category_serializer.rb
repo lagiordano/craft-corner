@@ -1,5 +1,3 @@
 class ProjectsInCategorySerializer < ActiveModel::Serializer
-  attributes :id, :category_type
-
-  has_many :projects
+  attributes :id, :title, :description, :url, :image, :adds
 end

@@ -23,6 +23,8 @@ gem 'will_paginate', '~> 4.0'
 
 gem 'email_validator', '~> 1.6'
 
+gem 'byebug', '~> 11.1', '>= 11.1.3'
+
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem "rack-cors"
