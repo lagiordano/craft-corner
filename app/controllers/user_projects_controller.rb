@@ -16,7 +16,7 @@ class UserProjectsController < ApplicationController
         user_project = UserProject.create!(user_project_params)
         adds = user_project.project.adds += 1
         user_project.project.update!(adds: adds)
-        render json: user_project.project, status: :created
+        render json: user_project, status: :created
     end
 
     #  delete '/user_projects/:id' will delete a user_project when user "removes" project from their list
@@ -30,7 +30,7 @@ class UserProjectsController < ApplicationController
     def update
         user_project = find_user_project
         user_project.update!(completed_status: user_project_params[:completed_status])
-        render json: user_project.project, status: :ok
+        render json: user_project, status: :ok
     end
 
     private 
@@ -48,7 +48,7 @@ class UserProjectsController < ApplicationController
     end
 
     def render_not_found_response
-        render json: { error: "Project not found for current user" }, status: :not_found
+        render json: { error: "Project not found" }, status: :not_found
     end
 
 

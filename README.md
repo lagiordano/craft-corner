@@ -18,7 +18,7 @@ Fork and clone this repo, then run the following commands:
 
 ## Usage 
 
-Enter `rails c` to open a console and explore the code. 
+Enter `rails c` to open a console and explore the code
 
 Enter `rails s` to start the server
 

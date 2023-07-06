@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
-    skip_before_action :authorize, only: [:update, :destroy]
     before_action :confirm_admin, only: [:update, :destroy]
    
     #  'categories/:id/projects' OR '/projects' displays all projects or all projects of a certain category to user with pagination 
@@ -16,7 +15,7 @@ class ProjectsController < ApplicationController
     end
 
     #  'projects/:id' displays individual project 
-    def show 
+    def show
         project = find_project
         render json: project, status: :ok
     end
@@ -61,6 +60,6 @@ class ProjectsController < ApplicationController
     end
 
     def confirm_admin
-        return render json: {error: "Projects can only be deleted and edited by admin" }, status: :unauthorized unless current_user.admin
+        return render json: {error: "Projects can only be deleted and edited by admin" }, status: :unauthorized unless @current_user.admin
     end
 end
