@@ -1,27 +1,29 @@
-# README
+# Craft Corner
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+A Ruby on Rails application that provides the backend for a application called Craft Corner, that allows users to share, save, and organise online craft projects. 
 
 
-This will become a Ruby on Rails appliaction that provides thr back end to an application, Craft Corner, where users can discover and share various craft projects. 
+## Installation
+
+Fork and clone this repo, then run the following commands:
+
+1. `cd craft-corner`
+
+2. `bundle install`
+
+3. `rails db:migrate`
+
+4. `rails db:seed`
+
+
+## Usage 
+
+Enter `rails c` to open a console and explore the code. 
+
+Enter `rails s` to start the server
+
+
+## Contributing
+
+Bug reports and pull requests are welcome at https://github.com/lagiordano/craft-corner-backend. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the code of conduct. 
+
