@@ -28,8 +28,12 @@ Project.create(title: "Crochet Scarf for Beginners", description: "Beginner frie
 
 Project.create(title: "Perfect Scarf for Bigginner Knitters", description: "This is a great knitting tutorial for beginners who need easy to understand instructions and basic stitches", url:"https://nimble-needles.com/patterns/how-to-knit-a-scarf-for-beginners/", image: "https://nimble-needles.com/wp-content/uploads/2020/04/how-to-knit-a-scarf.jpg.webp", adds: 0, category_id: 2)
 
+Project.create(title: "How to Make Planter Posts for String Lights", description: "Extend the party into the night with these wooden whiskey barrels made into planters with posts that hold string lights", url:"https://www.hgtv.com/outdoors/outdoor-spaces/how-to-make-planter-posts-for-string-lights", image: "https://diy.sndimg.com/content/dam/images/diy/fullset/2018/3/19/Original_Start-Here_paver-pad-beauty-retouched.jpg.rend.hgtvcom.616.462.suffix/1521573004393.jpeg", adds: 0, category_id: 4)
+
 
 puts "Seeding users..."
+
+User.create(username: "Admin", email: "admin@craftcorner.com", password: "Admin123", admin: true)
 
 User.create(username: "LaurenCrafts", email: "lauren@gmail.com", password: "Password1")
 
@@ -73,6 +77,24 @@ UserProject.create(user_id: 5, project_id: 3, completed_status: "wish list")
 UserProject.create(user_id: 5, project_id: 4, completed_status: "completed")
 
 UserProject.create(user_id: 5, project_id: 5, completed_status: "in progress")
+
+UserProject.create(user_id: 5, project_id: 11, completed_status: "in progress")
+
+UserProject.create(user_id: 2, project_id: 10, completed_status: "in progress")
+
+UserProject.create(user_id: 6, project_id: 2, completed_status: "in progress")
+
+UserProject.create(user_id: 6, project_id: 5, completed_status: "wish list")
+
+UserProject.create(user_id: 6, project_id: 10, completed_status: "completed")
+
+UserProject.create(user_id: 6, project_id: 12, completed_status: "completed")
+
+UserProject.create(user_id: 5, project_id: 12, completed_status: "wish list")
+
+UserProject.create(user_id: 6, project_id: 12, completed_status: "wish list")
+
+UserProject.create(user_id: 9, project_id: 12, completed_status: "in progress")
 
 
 

@@ -1,5 +1,6 @@
 class Project < ApplicationRecord
-    validates :title, :url, :image, presence: true
+    validates :title, :image, presence: true
+    validates :url, presence: true, uniqueness: true
     validates :description, length: { maximum: 300 }
     validates :adds, numericality: { greater_than_or_equal_to: 0 }
 

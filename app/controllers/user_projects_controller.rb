@@ -1,30 +1,36 @@
 class UserProjectsController < ApplicationController
-    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocesable_entity_response
+    
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
-    
-    #  clicking 'add project' on front end will create a user_proejct association, will also update the project to increase the 'adds' count by 1
+    before_action :correct_user, only: [:destroy, :update]
+
+    #  '/user_projects' renders all user_projects belonging to current user with nested project and category
+    def index 
+        user_projects = @current_user.user_projects
+        render json: user_projects, status: :ok
+    end
+
+    #  '/user_projects' creates a user_project when user "adds" project to their list, increments project "adds" count by 1.
     def create
+        return render json: {error: "Not authorized" }, status: :unauthorized unless user_project_params[:user_id].to_i == @current_user.id
         user_project = UserProject.create!(user_project_params)
-        adds = user_project.project.adds
-        adds += 1
+        adds = user_project.project.adds += 1
         user_project.project.update!(adds: adds)
         render json: user_project.project, status: :created
     end
 
-    #  clicking 'remove from list' on front end will delete user_project
+    #  delete '/user_projects/:id' will delete a user_project when user "removes" project from their list
     def destroy
         user_project = find_user_project
         user_project.destroy
         head :no_content
     end
 
-    #  allows user to change project completed_status on front end
+    #  patch '/user_projects/:id' will update completed status of user_project
     def update
         user_project = find_user_project
-        project = Project.find(user_project.project_id)
-        user_project.update(user_project_params[:completed_status])
-        render json: project, status: :ok
+        user_project.update!(completed_status: user_project_params[:completed_status])
+        render json: user_project.project, status: :ok
     end
 
     private 
@@ -37,12 +43,13 @@ class UserProjectsController < ApplicationController
         params.permit(:user_id, :project_id, :completed_status)
     end
 
-    def render_unprocesable_entity_response invalid
-        render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
+    def correct_user
+        return render json: {error: "Not authorized" }, status: :unauthorized unless find_user_project.user_id == @current_user.id
     end
 
     def render_not_found_response
-        render json: { error: "Not authorized, please log in" }, status: :not_found
+        render json: { error: "Project not found for current user" }, status: :not_found
     end
+
 
 end
