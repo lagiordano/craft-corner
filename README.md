@@ -1,6 +1,6 @@
 # Craft Corner
 
-A Ruby on Rails application that provides the backend for a application called Craft Corner, that allows users to share, save, and organise online craft projects. 
+A Ruby on Rails application that provides the backend for an application, Craft Corner, where users share, save, and organise their favourite online craft tutorials/projects. 
 
 
 ## Installation
@@ -25,5 +25,9 @@ Enter `rails s` to start the server
 
 ## Contributing
 
-Bug reports and pull requests are welcome at https://github.com/lagiordano/craft-corner-backend. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the code of conduct. 
+Bug reports and pull requests are welcome at https://github.com/lagiordano/craft-corner-backend. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/lagiordano/craft-corner-backend/blob/main/CODE_OF_CONDUCT.md).
 
+
+## License 
+
+This project is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT). 
