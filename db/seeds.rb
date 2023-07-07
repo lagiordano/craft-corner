@@ -40,7 +40,7 @@ Project.create(title: "Make Your Own Playdough", description: "Recipe to make pl
 
 Project.create(title: "Paper Bag Monster Puppets", description: "Great halloween craft for the whole family to get involved in!", url: "https://iheartcraftythings.com/paper-bag-monster-puppets.html", image: "https://iheartcraftythings.com/wp-content/uploads/2015/09/paper-bag-monsters-1.jpg", category_id: 5, )
 
-Project.create(title: "", description: "", url: "", image: "", category_id: , )
+
 
 puts "Seeding users..."
 
