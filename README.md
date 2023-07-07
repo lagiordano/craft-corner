@@ -7,7 +7,7 @@ A Ruby on Rails application that provides the backend for an application, Craft 
 
 Fork and clone this repo, then run the following commands:
 
-1. `cd craft-corner`
+1. `cd craft-corner-backend`
 
 2. `bundle install`
 
