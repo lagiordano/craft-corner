@@ -14,6 +14,5 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  # root "articles#index"
-  # pagination for: '/categories/:id/projects', '/projects', '/users/:id/projects'
+  
 end

@@ -29,7 +29,7 @@ class UserProjectsController < ApplicationController
     #  patch '/user_projects/:id' will update completed status of user_project
     def update
         user_project = find_user_project
-        user_project.update!(completed_status: user_project_params[:completed_status])
+        user_project.update!(update_user_project_params)
         render json: user_project, status: :ok
     end
 
@@ -41,6 +41,10 @@ class UserProjectsController < ApplicationController
 
     def user_project_params 
         params.permit(:user_id, :project_id, :completed_status)
+    end
+
+    def update_user_project_params
+        params.permit(:completed_status)
     end
 
     def correct_user
