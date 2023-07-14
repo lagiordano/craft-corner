@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  resources :categories, only: [:index] do 
-    resources :projects, only: [:index, :show]
-  end
 
   resources :projects, only: [:index, :show, :create, :update, :destroy]
+  get '/:category/projects', to: 'projects#projects_by_category'
 
   resources :user_projects, only: [:index, :create, :destroy, :update]
 

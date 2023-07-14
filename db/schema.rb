@@ -11,19 +11,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_06_29_035630) do
-  create_table "categories", force: :cascade do |t|
-    t.string "category_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "projects", force: :cascade do |t|
-    t.integer "category_id"
+    t.string "category"
     t.string "title"
     t.text "description"
     t.string "url"
     t.string "image"
     t.integer "adds", default: 0
+    t.string "shared_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -40,7 +35,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_29_035630) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
-    t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
