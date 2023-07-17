@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_29_035630) do
     t.text "description"
     t.string "url"
     t.string "image"
-    t.integer "adds", default: 0
+    t.integer "adds", default: 1
     t.string "shared_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

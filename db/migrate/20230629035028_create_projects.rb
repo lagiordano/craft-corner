@@ -6,7 +6,7 @@ class CreateProjects < ActiveRecord::Migration[7.0]
       t.text :description
       t.string :url
       t.string :image
-      t.integer :adds, default: 0
+      t.integer :adds, default: 1
       t.string :shared_by
 
       t.timestamps

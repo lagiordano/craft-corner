@@ -25,6 +25,8 @@ gem 'email_validator', '~> 1.6'
 
 gem 'byebug', '~> 11.1', '>= 11.1.3'
 
+gem 'link_thumbnailer'
+
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem "rack-cors"
