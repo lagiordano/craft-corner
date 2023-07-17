@@ -34,20 +34,22 @@ class ProjectsController < ApplicationController
         new_project = LinkThumbnailer.generate(project_params[:url])
         image = new_project.images.first
         image ? image = image.src : image = nil
-        project = Project.create!(url: project_params[:url], title: project_params[:title], description: new_project.description, image: image, shared_by: @current_user.username, category: project_params[:category])
+        project = Project.create!(url: project_params[:url], title: new_project.title, description: new_project.description, image: image, shared_by: @current_user.username, category: project_params[:category])
         UserProject.create!(user_id: @current_user.id, project_id: project.id, completed_status: user_project_params[:completed_status])
         render json: project, status: :created
     end
 
+    # '/shared_by_user' displays proejcts shared by logged in user that can be updated
     def shared_by_user
-        
+        projects = Project.where("shared_by = ?", @current_user.username)
+        render json: projects.paginate(page: params[:page], per_page: 50), status: :ok
     end
 
     # '/projects/:id' lets users edit only the projects they have shared
     def update
         project = find_project
         return render json: {error: "Projects can only be edited by the user who orginally shared them" }, status: :unauthorized unless project.shared_by == @current_user.username
-        project.update!(project_params)
+        project.update!(update_project_paramsproject_params)
         render json: project, status: :ok
     end
 
@@ -66,8 +68,11 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-        params.permit(:url, :category, :title)
+        params.permit(:url, :category)
     end
+
+    def update_project_params
+        params.permit(:url, :category, :title, :description, :image)
 
     def user_project_params
         params.permit(:completed_status)

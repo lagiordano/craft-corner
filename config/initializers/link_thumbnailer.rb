@@ -57,11 +57,11 @@ LinkThumbnailer.configure do |config|
 
   # Regex of words considered positive to rate website description.
   #
-  # config.positive_regex = /article|body|content|entry|hentry|main|page|pagination|post|text|blog|story/i
+  # config.positive_regex = /article|body|content|entry|hentry|main|page|pagination|post|text|blog|project|story/i
 
   # Regex of words considered negative to rate website description.
   #
-  # config.negative_regex = /combx|comment|com-|contact|foot|footer|footnote|masthead|media|meta|outbrain|promo|related|scroll|shoutbox|sidebar|sponsor|shopping|tags|tool|widget|modal/i
+  # config.negative_regex = /combx|comment|comments|com-|contact|foot|footer|footnote|masthead|media|meta|outbrain|promo|related|scroll|shoutbox|sidebar|sponsor|shopping|tags|tool|widget|modal/i
 
   # Numbers of images to fetch. Fetching too many images will be slow.
   # Note that LinkThumbnailer will only sort fetched images between each other.
@@ -73,7 +73,7 @@ LinkThumbnailer.configure do |config|
   # Setting this value to false will increase performance since for each images, LinkThumbnailer
   # does not have to fetch its size and type.
   #
-  # config.image_stats = true
+  # config.image_stats = false
 
   # Whether you want LinkThumbnailer to raise an exception if the Content-Type of the HTTP request
   # is not an html or xml.
