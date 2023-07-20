@@ -3,7 +3,8 @@ class UsersController < ApplicationController
 
     # '/me' checks for logged in user
     def show 
-        render json: @current_user, status: :ok
+        user = @current_user
+        render json: user, status: :ok
     end
 
     

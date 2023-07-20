@@ -41,6 +41,10 @@ module CraftCorner
 
     config.action_dispatch.cookies_same_site_protection = :strict
 
+
+
+   
+
   
 
 

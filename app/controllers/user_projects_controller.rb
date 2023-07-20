@@ -1,19 +1,28 @@
 class UserProjectsController < ApplicationController
     
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
-
+    
     before_action :correct_user, only: [:destroy, :update]
 
-    #  '/user_projects' renders all user_projects belonging to current user with nested project and category
-    def index 
-        user_projects = @current_user.user_projects
+    #  '/user_projects' renders all user_projects belonging to current user with nested project and category 
+    # def index 
+    #     user_projects = @current_user.user_projects
+    #     render json: user_projects, status: :ok
+    # end
+
+    # ADD USER AUTH
+    def filtered_collection
+        if params[:filter] == "all"
+            user_projects = @current_user.user_projects
+        else
+            user_projects = UserProject.where("user_id = ?", @current_user.id).where("completed_status = ?", params[:filter])
+        end
         render json: user_projects, status: :ok
     end
 
     #  '/user_projects' creates a user_project when user "adds" project to their list, increments project "adds" count by 1.
     def create
-        return render json: {error: "Not authorized" }, status: :unauthorized unless user_project_params[:user_id].to_i == @current_user.id
-        user_project = UserProject.create!(user_project_params)
+        user_project = UserProject.create!(user_id: @current_user.id, project_id: user_project_params[:project_id], completed_status: "wish list")
         adds = user_project.project.adds += 1
         user_project.project.update!(adds: adds)
         render json: user_project, status: :created
@@ -40,7 +49,7 @@ class UserProjectsController < ApplicationController
     end
 
     def user_project_params 
-        params.permit(:user_id, :project_id, :completed_status)
+        params.permit(:project_id)
     end
 
     def update_user_project_params

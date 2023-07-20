@@ -5,15 +5,16 @@ class ProjectsController < ApplicationController
    
     #  '/projects' displays all projects to visitors and users with pagination 
     def index
-        projects = Project.all
-        render json: projects.paginate(page: params[:page], per_page: 50), status: :ok
+        projects = Project.order(adds: :desc)
+        render json: projects, status: :ok
+        # render json: projects.paginate(page: params[:page], per_page: 50), status: :ok
     end
 
     # '/:category/projects' displays all projects within the specified category to visitors and users with pagination 
-    def projects_by_category
-        projects = Project.where("category = ?", params[:category])
-        render json: projects.paginate(page: params[:page], per_page: 50), status: :ok
-    end
+    # def projects_by_category
+    #     projects = Project.where("category = ?", params[:category]).order(adds: :desc)
+    #     render json: projects, status: :ok
+    # end
 
     #  'projects/:id' displays individual project 
     def show
@@ -39,10 +40,10 @@ class ProjectsController < ApplicationController
         render json: project, status: :created
     end
 
-    # '/shared_by_user' displays proejcts shared by logged in user that can be updated
+    # '/shared_by_user' displays projects shared by logged in user that can be updated
     def shared_by_user
         projects = Project.where("shared_by = ?", @current_user.username)
-        render json: projects.paginate(page: params[:page], per_page: 50), status: :ok
+        render json: projects, status: :ok
     end
 
     # '/projects/:id' lets users edit only the projects they have shared
@@ -73,6 +74,7 @@ class ProjectsController < ApplicationController
 
     def update_project_params
         params.permit(:url, :category, :title, :description, :image)
+    end
 
     def user_project_params
         params.permit(:completed_status)

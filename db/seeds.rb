@@ -12,7 +12,7 @@ Project.create(title: "15 Easy Watercolor Painting Ideas for Beginners", descrip
 
 Project.create(title: "Easy Wooden Photo Frame", description: "These make affordable and personalised gifts come christmas time, and are a lot of fun to make!", url: "https://www.clubcrafted.com/easy-wood-frame-update/", image: "https://www.clubcrafted.com/wp-content/uploads/2020/08/easy-wood-frame-update-trim-10.jpg", category: "home")
 
-Project.create(title: "DIY Painted Serving Tray", description: "Colourful styling tray that can be customised to suit your home", url: "https://inspiredbycharm.com/painted-wood-serving-tray/", image: "https://inspiredbycharm.com/wp-content/uploads/2016/07/outdoor-serving-tray.jpg", category: "kids")
+Project.create(title: "DIY Painted Serving Tray", description: "Colourful styling tray that can be customised to suit your home", url: "https://inspiredbycharm.com/painted-wood-serving-tray/", image: "https://inspiredbycharm.com/wp-content/uploads/2016/07/outdoor-serving-tray.jpg", category: "home")
 
 Project.create(title: "Backyard Foam Cone Bowling Pins", description: "Very kid friendly project. Once they finish making it, they'll be kept entertained out in the yard too!", url: "https://www.spotlightstores.com/projects/kids-craft-projects/backyard-bowling-project", image: "https://www.spotlightstores.com/medias/backyard-bowling-project.jpg?context=bWFzdGVyfHJvb3R8MjcyNTI4fGltYWdlL2pwZWd8cm9vdC9oZDYvaDU1LzEwMTcwMjc1ODg5MTgyL2JhY2t5YXJkLWJvd2xpbmctcHJvamVjdC5qcGd8YTllYjhmNmJiYjMwYmNjNjcyNTg3NzgwN2FhYjhmYjA3MTRiZjhiYjYyMTBlZDg3NDBmNWJmNzE5NTcwN2ZlOA", category: "kids")
 
@@ -42,7 +42,7 @@ Project.create(title: "Recycled CD Coasters", description: "Upcycle your dusty C
 
 Project.create(title: "Clay Petal Planter", description: "Upcycle a plain pot plant with colourful polymer clay", url: "https://abeautifulmess.com/make-a-clay-petal-planter/", image: "https://abeautifulmess.com/wp-content/uploads/2018/04/Make-a-Clay-Petal-Planter-10.jpg", category: "home")
 
-Project.create(title: "Epoxy Resin Jewellery", description: "Make your own bright and playful jewellery for every outfit using this epoxy resin tutorial. After a bit of practice, I think I'll be sorted for chistmas gifts this year!", url: "https://abeautifulmess.com/diy-epoxy-resin-jewelry/", image: "https://abeautifulmess.com/diy-epoxy-resin-jewelry/", category: "art")
+Project.create(title: "Epoxy Resin Jewellery", description: "Make your own bright and playful jewellery for every outfit using this epoxy resin tutorial. After a bit of practice, I think I'll be sorted for chistmas gifts this year!", url: "https://abeautifulmess.com/diy-epoxy-resin-jewelry/", image: "https://abeautifulmess.com/wp-content/uploads/typekit/.a/6a00d8358081ff69e201b7c8d3c68e970b-pi", category: "art")
 
 Project.create(title: "Oversized Scrunchie", description: "Sew your own oversized scrunchie with this easy DIY tutorial", url: "https://abeautifulmess.com/oversized-scrunchie-diy/", image: "https://abeautifulmess.com/wp-content/uploads/2020/03/Oversized-Scrunchie-DIY-click-through-for-tutorial-1-6.jpg", category: "fabric")
 

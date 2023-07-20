@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get '/:category/projects', to: 'projects#projects_by_category'
   get '/shared_by_user', to: 'projects#shared_by_user'
 
-  resources :user_projects, only: [:index, :create, :destroy, :update]
+  resources :user_projects, only: [:create, :destroy, :update]
+  get 'collection/:filter', to: 'user_projects#filtered_collection'
 
 
   resources :users, only: [:destroy] 
