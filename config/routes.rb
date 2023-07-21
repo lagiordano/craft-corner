@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :user_projects, only: [:create, :destroy, :update]
   get 'collection/:filter', to: 'user_projects#filtered_collection'
+  get 'in_collection/:project_id', to: 'user_projects#in_collection?'
 
 
   resources :users, only: [:destroy] 

@@ -17,12 +17,19 @@ class UserProjectsController < ApplicationController
         else
             user_projects = UserProject.where("user_id = ?", @current_user.id).where("completed_status = ?", params[:filter])
         end
+        user_projects = user_projects.sort{ |a, b| b.created_at <=> a.created_at }
         render json: user_projects, status: :ok
+    end
+
+    def in_collection?
+        user_projects = @current_user.user_projects
+        in_collection = user_projects.any? { |user_project| user_project[:project_id] == params[:project_id].to_i}
+        render json: {in_collection: in_collection}, status: :ok
     end
 
     #  '/user_projects' creates a user_project when user "adds" project to their list, increments project "adds" count by 1.
     def create
-        user_project = UserProject.create!(user_id: @current_user.id, project_id: user_project_params[:project_id], completed_status: "wish list")
+        user_project = UserProject.create!(user_id: @current_user.id, project_id: user_project_params[:project_id], completed_status: user_project_params[:completed_status])
         adds = user_project.project.adds += 1
         user_project.project.update!(adds: adds)
         render json: user_project, status: :created
@@ -49,7 +56,7 @@ class UserProjectsController < ApplicationController
     end
 
     def user_project_params 
-        params.permit(:project_id)
+        params.permit(:project_id, :completed_status)
     end
 
     def update_user_project_params
