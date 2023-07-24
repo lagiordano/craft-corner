@@ -31,11 +31,16 @@ class ProjectsController < ApplicationController
     #     render json: project, status: :created
     # end
 
-    def create 
-        new_project = LinkThumbnailer.generate(project_params[:url])
-        image = new_project.images.first
-        image ? image = image.src : image = nil
-        project = Project.create!(url: project_params[:url], title: new_project.title, description: new_project.description, image: image, shared_by: @current_user.username, category: project_params[:category])
+    def create
+        if params[:image]
+            data = Cloudinary::Uploader.upload(project_params[:image])
+            image = data["url"]
+        else
+            new_project = LinkThumbnailer.generate(project_params[:url])
+            image = new_project.images.first
+            image ? image = image.src : image = nil
+        end
+        project = Project.create!(url: project_params[:url], title: project_params[:title], description: project_params[:description], image: image, shared_by: @current_user.username, category: project_params[:category])
         UserProject.create!(user_id: @current_user.id, project_id: project.id, completed_status: user_project_params[:completed_status])
         render json: project, status: :created
     end
@@ -43,7 +48,7 @@ class ProjectsController < ApplicationController
     # '/shared_by_user' displays projects shared by logged in user that can be updated
     def shared_by_user
         projects = Project.where("shared_by = ?", @current_user.username)
-        render json: projects, status: :ok
+        render json: projects, each_serializer: SharedProjectSerializer, status: :ok
     end
 
     # '/projects/:id' lets users edit only the projects they have shared
@@ -54,7 +59,7 @@ class ProjectsController < ApplicationController
         render json: project, status: :ok
     end
 
-    # '/projects/:id' lets users delete only the projects they have shared 
+    # '/projects/:id' lets users delete only the projects they have shared. If using this - add in cloudinary destroy method also 
     # def destroy
     #     project = find_project
     #     return render json: {error: "Projects can only be edited by the user who orginally shared them" }, status: :unauthorized unless project.shared_by == @current_user.username
@@ -69,7 +74,7 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-        params.permit(:url, :category)
+        params.permit(:url, :category, :title, :description, :image)
     end
 
     def update_project_params
