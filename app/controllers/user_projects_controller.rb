@@ -12,7 +12,10 @@ class UserProjectsController < ApplicationController
 
     # ADD USER AUTH
     def filtered_collection
-        if params[:filter] == "all"
+        if params[:filter] == "shared by user"
+            projects = Project.where("shared_by = ?", @current_user.username)
+             return render json: projects, each_serializer: SharedProjectSerializer, status: :ok
+        elsif params[:filter] == "all"
             user_projects = @current_user.user_projects
         else
             user_projects = UserProject.where("user_id = ?", @current_user.id).where("completed_status = ?", params[:filter])
@@ -21,10 +24,14 @@ class UserProjectsController < ApplicationController
         render json: user_projects, status: :ok
     end
 
-    def in_collection?
+    def check_in_collection
         user_projects = @current_user.user_projects
-        in_collection = user_projects.any? { |user_project| user_project[:project_id] == params[:project_id].to_i}
-        render json: {in_collection: in_collection}, status: :ok
+        user_project = user_projects.find_by(project_id: params[:project_id].to_i) 
+        if user_project
+            render json: {user_project_id: user_project.id}, status: :ok
+        else
+            render json: {user_project_id: nil }, status: :ok
+        end
     end
 
     #  '/user_projects' creates a user_project when user "adds" project to their list, increments project "adds" count by 1.

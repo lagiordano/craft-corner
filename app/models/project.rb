@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
     # validates :image, presence: true
     validates :title, presence: true, length: { in: 4..150 }
-    validates :description, presence: true
+    validates :description, length: { maximum: 3000}
     validates :adds, numericality: { greater_than_or_equal_to: 0 }
     validates :category, inclusion: { in: ["fabric", "yarn", "art", "home", "kids"] }
    

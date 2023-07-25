@@ -45,11 +45,7 @@ class ProjectsController < ApplicationController
         render json: project, status: :created
     end
 
-    # '/shared_by_user' displays projects shared by logged in user that can be updated
-    def shared_by_user
-        projects = Project.where("shared_by = ?", @current_user.username)
-        render json: projects, each_serializer: SharedProjectSerializer, status: :ok
-    end
+ 
 
     # '/projects/:id' lets users edit only the projects they have shared
     def update
