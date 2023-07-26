@@ -20,6 +20,7 @@ class UserProjectsController < ApplicationController
         else
             user_projects = UserProject.where("user_id = ?", @current_user.id).where("completed_status = ?", params[:filter])
         end
+        
         user_projects = user_projects.sort{ |a, b| b.created_at <=> a.created_at }
         render json: user_projects, status: :ok
     end

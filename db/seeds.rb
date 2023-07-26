@@ -58,21 +58,7 @@ Project.create(title: "Banksia Embroidery Kit", description: "This is a super be
 
 Project.create(title: "Seed Packet Decoupage Clay Pots", description: "I haven't tried this yet, but it's such a good way to recycle cute seed packets", url: "https://craftsbyamanda.com/seed-packet-decoupage-clay-pots/", image: "https://craftsbyamanda.com/wp-content/uploads/2014/04/Seed-Packet-Clay-Pots3.jpg", category: "home")
 
-Project.create(title: "", description: "", url: "", image: "", category: "")
 
-Project.create(title: "", description: "", url: "", image: "", category: "")
-
-Project.create(title: "", description: "", url: "", image: "", category: "")
-
-Project.create(title: "", description: "", url: "", image: "", category: "")
-
-Project.create(title: "", description: "", url: "", image: "", category: "")
-
-Project.create(title: "", description: "", url: "", image: "", category: "")
-
-Project.create(title: "", description: "", url: "", image: "", category: "")
-
-Project.create(title: "", description: "", url: "", image: "", category: "")
 
 # categories = yarn, fabric, art, home, kids 
 
