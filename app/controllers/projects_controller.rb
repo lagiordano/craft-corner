@@ -1,13 +1,22 @@
 class ProjectsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
-    skip_before_action :authorize, only: [:index, :projects_by_category, :show]
+    skip_before_action :authorize, only: [:index, :popular_sample, :show]
    
     #  '/projects' displays all projects to visitors and users with pagination 
     def index
         projects = Project.order(adds: :desc)
         render json: projects, status: :ok
         # render json: projects.paginate(page: params[:page], per_page: 50), status: :ok
+    end
+
+    def popular_sample
+        projects = Project.order(adds: :desc).first(3)
+        if projects
+            render json: projects, status: :ok
+        else
+            render json: { errors: ["Could not access sample of projects"]}, status: :not_found
+        end
     end
 
     # '/:category/projects' displays all projects within the specified category to visitors and users with pagination 

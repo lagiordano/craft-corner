@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   resources :projects, only: [:index, :show, :create, :update]
-  get '/:category/projects', to: 'projects#projects_by_category'
+  # get '/:category/projects', to: 'projects#projects_by_category'
+  get '/popular_sample', to: 'projects#popular_sample'
 
   resources :user_projects, only: [:create, :destroy, :update]
   get 'collection/:filter', to: 'user_projects#filtered_collection'
