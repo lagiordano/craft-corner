@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
     end
 
     def popular_sample
-        projects = Project.order(adds: :desc).first(3)
+        projects = Project.order(adds: :desc).first(4)
         if projects
             render json: projects, status: :ok
         else
@@ -58,9 +58,19 @@ class ProjectsController < ApplicationController
 
     # '/projects/:id' lets users edit only the projects they have shared
     def update
+        if params[:image] 
+            data = Cloudinary::Uploader.upload(project_params[:image])
+            image = data["url"]
+        elsif params[:url]
+            new_project = LinkThumbnailer.generate(project_params[:url])
+            image = new_project.images.first
+            image ? image = image.src : image = nil
+        end
         project = find_project
         return render json: {error: "Projects can only be edited by the user who orginally shared them" }, status: :unauthorized unless project.shared_by == @current_user.username
-        project.update!(update_project_paramsproject_params)
+        project.update!(update_project_params)
+        project.image = image if image;
+        project.save!
         render json: project, status: :ok
     end
 
@@ -83,7 +93,7 @@ class ProjectsController < ApplicationController
     end
 
     def update_project_params
-        params.permit(:url, :category, :title, :description, :image)
+        params.permit(:url, :category, :title, :description)
     end
 
     def user_project_params
