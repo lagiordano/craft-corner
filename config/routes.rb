@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'check_in_collection/:project_id', to: 'user_projects#check_in_collection'
 
 
-  resources :users, only: [:destroy] 
+  resources :users, only: [:destroy, :update] 
   get '/me', to: 'users#show' 
   post '/signup', to: 'users#create'
   

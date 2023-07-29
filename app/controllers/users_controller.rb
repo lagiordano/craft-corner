@@ -19,13 +19,27 @@ class UsersController < ApplicationController
     def destroy
         return render json: {error: "Not authorized" }, status: :unauthorized unless params[:id].to_i == session[:user_id]
         @current_user.destroy
+        session.delete :user_id
         head :no_content
     end
+
+    # /users/:id updates user account details - username and email only
+    def update 
+        return render json: {error: "Not authorized" }, status: :unauthorized unless params[:id].to_i == session[:user_id]
+        user = User.find(params[:id])
+        user.update!(update_user_params);
+        render json: user, status: :ok
+    end
+
 
     private 
 
     def user_params
         params.permit(:username, :email, :password, :password_confirmation)
+    end
+
+    def update_user_params
+        params.permit(:username, :email)
     end
     
   
