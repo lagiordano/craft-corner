@@ -41,13 +41,15 @@ class ProjectsController < ApplicationController
     # end
 
     def create
-        if params[:image]
-            data = Cloudinary::Uploader.upload(project_params[:image])
-            image = data["url"]
-        else
+        if params[:url]
             new_project = LinkThumbnailer.generate(project_params[:url])
             image = new_project.images.first
             image ? image = image.src : image = nil
+        elsif params[:image]
+            data = Cloudinary::Uploader.upload(project_params[:image])
+            image = data["url"]
+        else
+            image = nil
         end
         project = Project.create!(url: project_params[:url], title: project_params[:title], description: project_params[:description], image: image, shared_by: @current_user.username, category: project_params[:category])
         UserProject.create!(user_id: @current_user.id, project_id: project.id, completed_status: user_project_params[:completed_status])

@@ -10,11 +10,7 @@ class User < ApplicationRecord
     has_many :user_projects, dependent: :destroy
     has_many :projects, through: :user_projects
 
-    # Move responsibility of this to front end once built
-    before_save :downcase_email
-    def downcase_email
-        self.email = email.downcase
-    end
+   
 
 
 end
