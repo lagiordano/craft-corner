@@ -101,7 +101,7 @@ class ProjectsController < ApplicationController
     end
 
     def render_not_found_response
-        render json: {error: "Project not found" }, status: :not_found
+        render json: {errors: ["Project could not be found"] }, status: :not_found
     end
 
     # def confirm_admin

@@ -17,12 +17,11 @@ class UserProjectsController < ApplicationController
              return render json: projects, each_serializer: SharedProjectSerializer, status: :ok
         elsif params[:filter] == "all"
             user_projects = @current_user.user_projects
-        else
+        else 
             user_projects = UserProject.where("user_id = ?", @current_user.id).where("completed_status = ?", params[:filter])
         end
-        
         user_projects = user_projects.sort{ |a, b| b.created_at <=> a.created_at }
-        render json: user_projects, status: :ok
+        return render json: user_projects, status: :ok
     end
 
     def check_in_collection
