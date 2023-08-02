@@ -3,6 +3,7 @@ class UserProjectsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
     
     before_action :correct_user, only: [:destroy, :update]
+   
 
     #  '/user_projects' renders all user_projects belonging to current user with nested project and category 
     # def index 
