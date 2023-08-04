@@ -5,17 +5,11 @@ class UserProjectsController < ApplicationController
     before_action :correct_user, only: [:destroy, :update]
    
 
-    #  '/user_projects' renders all user_projects belonging to current user with nested project and category 
-    # def index 
-    #     user_projects = @current_user.user_projects
-    #     render json: user_projects, status: :ok
-    # end
-
-    # ADD USER AUTH
+    # '/collection/:filter' returns all user-projects within: in progress, to-do, completed, all projects, and shared by user for user's dashboard
     def filtered_collection
         if params[:filter] == "shared by user"
             projects = Project.where("shared_by = ?", @current_user.username)
-             return render json: projects, each_serializer: SharedProjectSerializer, status: :ok
+            return render json: projects, each_serializer: SharedProjectSerializer, status: :ok
         elsif params[:filter] == "all"
             user_projects = @current_user.user_projects
         else 
@@ -25,6 +19,7 @@ class UserProjectsController < ApplicationController
         return render json: user_projects, status: :ok
     end
 
+    # 'check_in_collection/:project_id' checks if a specific project is in users user_projects: returns user_project_id (nil if not present)
     def check_in_collection
         user_projects = @current_user.user_projects
         user_project = user_projects.find_by(project_id: params[:project_id].to_i) 

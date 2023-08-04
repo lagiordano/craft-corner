@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     skip_before_action :authorize, only: [:create]
+    before_action :correct_user, only: [:destroy, :update]
 
     # '/me' checks for logged in user
     def show 
@@ -17,7 +18,6 @@ class UsersController < ApplicationController
 
     # '/users/:id' deletes user account and destroys associated user_projects, but NOT associated projects 
     def destroy
-        return render json: {error: "Not authorized" }, status: :unauthorized unless params[:id].to_i == session[:user_id]
         @current_user.destroy
         session.delete :user_id
         head :no_content
@@ -25,7 +25,6 @@ class UsersController < ApplicationController
 
     # /users/:id updates user account details - username and email only
     def update 
-        return render json: {error: "Not authorized" }, status: :unauthorized unless params[:id].to_i == session[:user_id]
         user = User.find(params[:id])
         user.update!(update_user_params);
         render json: user, status: :ok
@@ -33,6 +32,10 @@ class UsersController < ApplicationController
 
 
     private 
+
+    def correct_user 
+        return render json: {error: "Not authorized" }, status: :unauthorized unless params[:id].to_i == session[:user_id]
+    end
 
     def user_params
         params.permit(:username, :email, :password, :password_confirmation)

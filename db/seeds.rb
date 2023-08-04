@@ -60,10 +60,9 @@ Project.create(title: "Seed Packet Decoupage Clay Pots", description: "I haven't
 
 
 
-# categories = yarn, fabric, art, home, kids 
-
 puts "Seeding users..."
 
+# No admin functionality implemented yet in front end
 # User.create(username: "Admin", email: "admin@craftcorner.com", password: "Admin123", admin: true)
 
 User.create(username: "LaurenG", email: "lauren@gmail.com", password: "Password1")
@@ -79,31 +78,31 @@ User.create(username: "DavidCraftsALot", email: "david@gmail.com", password: "Pa
 
 puts "Seeding user projects..."
 
-UserProject.create(user_id: 1, project_id: 1, completed_status: "wish list")
+UserProject.create(user_id: 1, project_id: 1, completed_status: "to-do")
 
 UserProject.create(user_id: 1, project_id: 2, completed_status: "completed")
 
 UserProject.create(user_id: 1, project_id: 3, completed_status: "in progress")
 
-UserProject.create(user_id: 2, project_id: 4, completed_status: "wish_list")
+UserProject.create(user_id: 2, project_id: 4, completed_status: "to-do")
 
 UserProject.create(user_id: 2, project_id: 5, completed_status: "completed")
 
 UserProject.create(user_id: 2, project_id: 6, completed_status: "in progress")
 
-UserProject.create(user_id: 3, project_id: 7, completed_status: "wish list")
+UserProject.create(user_id: 3, project_id: 7, completed_status: "to-do")
 
 UserProject.create(user_id: 3, project_id: 8, completed_status: "completed")
 
 UserProject.create(user_id: 3, project_id: 9, completed_status: "in progress")
 
-UserProject.create(user_id: 4, project_id: 10, completed_status: "wish list")
+UserProject.create(user_id: 4, project_id: 10, completed_status: "to-do")
 
 UserProject.create(user_id: 4, project_id: 1, completed_status: "in progress")
 
 UserProject.create(user_id: 4, project_id: 2, completed_status: "completed")
 
-UserProject.create(user_id: 5, project_id: 3, completed_status: "wish list")
+UserProject.create(user_id: 5, project_id: 3, completed_status: "to-do")
 
 UserProject.create(user_id: 5, project_id: 4, completed_status: "completed")
 
@@ -115,15 +114,15 @@ UserProject.create(user_id: 2, project_id: 10, completed_status: "in progress")
 
 UserProject.create(user_id: 5, project_id: 2, completed_status: "in progress")
 
-UserProject.create(user_id: 4, project_id: 5, completed_status: "wish list")
+UserProject.create(user_id: 4, project_id: 5, completed_status: "to-do")
 
 UserProject.create(user_id: 1, project_id: 10, completed_status: "completed")
 
 UserProject.create(user_id: 3, project_id: 12, completed_status: "completed")
 
-UserProject.create(user_id: 1, project_id: 12, completed_status: "wish list")
+UserProject.create(user_id: 1, project_id: 12, completed_status: "to-do")
 
-UserProject.create(user_id: 4, project_id: 12, completed_status: "wish list")
+UserProject.create(user_id: 4, project_id: 12, completed_status: "to-do")
 
 UserProject.create(user_id: 2, project_id: 12, completed_status: "in progress")
 

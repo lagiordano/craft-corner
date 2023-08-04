@@ -19,8 +19,6 @@ gem 'bcrypt'
 
 gem 'active_model_serializers'
 
-gem 'will_paginate', '~> 4.0'
-
 gem 'email_validator', '~> 1.6'
 
 gem 'byebug', '~> 11.1', '>= 11.1.3'
