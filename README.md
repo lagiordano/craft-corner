@@ -1,6 +1,6 @@
 # Craft Corner
 
-A Ruby on Rails application that provides the backend for an application, Craft Corner, where users share, save, and organise their favourite online craft tutorials/projects. 
+A Ruby on Rails application that provides the backend for an application, Craft Corner, where users can share, save, and organise their favourite craft projects. You can find the code for Craft Corner's frontend [here](https://github.com/lagiordano/craft-corner-frontend), built with React. 
 
 
 ## Installation
