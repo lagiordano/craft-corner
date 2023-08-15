@@ -127,5 +127,19 @@ UserProject.create(user_id: 4, project_id: 12, completed_status: "to-do")
 UserProject.create(user_id: 2, project_id: 12, completed_status: "in progress")
 
 
+puts "Seeding comments..."
+
+Comment.create(user_id: 1, project_id: 5, comment_text: "Love this project!")
+
+Comment.create(user_id: 2, project_id: 12, comment_text: "Is this beginner friendly?")
+
+Comment.create(user_id: 4, project_id: 12, comment_text: "I'd say it's beginner-intermediate")
+
+Comment.create(user_id: 3, project_id: 1, comment_text: "Bought this as a gift for my neice, she loved it!")
+
+Comment.create(user_id: 5, project_id: 1, comment_text: "A time consuming but very addictive crafting project!")
+
+
+
 
 puts "Seeding completed!"

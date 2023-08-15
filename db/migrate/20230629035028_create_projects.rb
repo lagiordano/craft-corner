@@ -8,7 +8,6 @@ class CreateProjects < ActiveRecord::Migration[7.0]
       t.string :image
       t.integer :adds, default: 1
       t.string :shared_by
-
       t.timestamps
     end
   end

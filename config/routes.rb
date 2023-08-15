@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'collection/:filter', to: 'user_projects#filtered_collection'
   get 'check_in_collection/:project_id', to: 'user_projects#check_in_collection'
 
+  resources :comments, only: [:create, :destroy]
+
 
   resources :users, only: [:destroy, :update] 
   get '/me', to: 'users#show' 

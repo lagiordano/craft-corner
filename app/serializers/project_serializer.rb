@@ -5,6 +5,8 @@ class ProjectSerializer < ActiveModel::Serializer
     self.object.updated_at.strftime("%d/%m/%Y")
   end
 
+  has_many :comments
+
 
 end
 
