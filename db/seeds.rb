@@ -62,10 +62,8 @@ Project.create(title: "Seed Packet Decoupage Clay Pots", description: "I haven't
 
 puts "Seeding users..."
 
-# No admin functionality implemented yet in front end
-# User.create(username: "Admin", email: "admin@craftcorner.com", password: "Admin123", admin: true)
 
-User.create(username: "LaurenG", email: "lauren@gmail.com", password: "Password1")
+User.create(username: "LaurenG", admin: true, email: "lauren@gmail.com", password: "Password1")
 
 User.create(username: "JaneDoe1", email: "jane@gmail.com", password: "Password1")
 
